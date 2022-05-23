@@ -11,7 +11,7 @@ const JournalEntry = ({ visible, onClose, onSubmit}) => {
 
     //for speech to text.
     const speak = () => {
-        const thingToSay = 'The user should be speaking not me';
+        const thingToSay = 'The user should speak not me';
         Speech.speak(thingToSay);
       };
 
