@@ -5,6 +5,8 @@ import HomeScreen from './screens/HomeScreen';
 import ActivityScreen from './screens/ActivityScreen';
 import JournalScreen from './screens/JournalScreen';
 import OpenedEntry from './screens/OpenedEntry';
+import JournalAPI from '../logic/JournalAPI';
+
 
 const Stack = createStackNavigator();
 
@@ -26,6 +28,7 @@ export {HomeScreenNavigator};
 
 const JournalScreenNavigator = () => {
     return (
+        <JournalAPI>
         <Stack.Navigator screenOptions={{headerTitle: '', headerTransparent: true}}>
             <Stack.Screen
                 name ="JournalScreen"
@@ -35,6 +38,8 @@ const JournalScreenNavigator = () => {
                 component={OpenedEntry}/>
         
         </Stack.Navigator>
+        </JournalAPI>
+    
     )
 }
 

@@ -4,6 +4,7 @@ import { Button, View, Text, ScrollView, StyleSheet, TouchableOpacity, Alert } f
 import { colours } from '../../src/consts/theme';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { useListings } from '../../logic/JournalAPI';
 
 
 //Sets up the default view for when on the OpenedEntry nested screen 
@@ -11,6 +12,8 @@ const OpenedEntry = props => {
 
   //to send the journal information to this page.
   const { listing } = props.route.params;
+  const { setListings } = useListings();
+
   const formatDate = past => {
     const date = new Date(past);
 
@@ -52,9 +55,11 @@ const OpenedEntry = props => {
     //all the listing items in the array and filtered through and as long as it isn't the id of the item the user has selected,
     //the items will be added back into the empty listings array. 
     const newListing = listings.filter(i => i.id !== listing.id);
+    setListings(newListing); //updates the listings with the new listings
     await AsyncStorage.setItem('listings', JSON.stringify(newListing));
     props.navigation.goBack(); //takes the user back to the main journal screen they came from since the entry is deleted.
   }
+  
 
     
     return (

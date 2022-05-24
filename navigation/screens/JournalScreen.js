@@ -9,6 +9,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import SavedJournals from '../../components/SavedJournals';
 import { NavigationContainer } from '@react-navigation/native';
 import OpenedEntry from './OpenedEntry';
+import { useListings } from '../../logic/JournalAPI';
 
 
 //Sets up the default view for when on the Journal Screen w/ option to go home
@@ -16,7 +17,7 @@ export default function JournalScreen({ navigation }) {
   const [modalVisible, setModalVisible] = useState(false);
   const [logVisible, setLogVisible] = useState(false);
   const [entryVisible, setEntryVisible] = useState(false);
-  const [listings, setListings] = useState([]);
+  const {listings, setListings} = useListings();
   
   //function for the handling the save button 
   const onSaveHandler = async (title, entry ) => {
@@ -29,17 +30,6 @@ export default function JournalScreen({ navigation }) {
     setListings(updatedListing);
     await AsyncStorage.setItem('listings', JSON.stringify(updatedListing))
   }
-
-  const findListings = async () => {
-    const result = await AsyncStorage.getItem('listings');
-    //console.log(result); //test to check that journal listings are able to be retrieved
-    if(result !== null) setListings(JSON.parse(result));
-
-  };
-
-  useEffect(() => {
-    findListings();
-  }, []);
 
   //the method to send the current item in the journal listings to the Opened Entry page.
   const openJournal = (listing) => {
