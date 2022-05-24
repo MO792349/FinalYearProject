@@ -1,7 +1,7 @@
 //imports everything as React
 import * as React from 'react';
 import { TextInput, View, Text, StyleSheet, TouchableOpacity, Modal } from 'react-native';
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { colours } from '../src/consts/theme';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import * as Speech from 'expo-speech';
@@ -44,6 +44,18 @@ const JournalEntry = ({ visible, onClose, onSubmit}) => {
         onClose();
     }
 
+    //to get the current date the user is adding an entry
+    const [date, setDate] = useState(null);
+    useEffect(() => {
+    var  months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    let today = new Date();
+
+    var monthName = months[today.getMonth()];
+    let date = today.getDate()+'th '+(monthName)+' '+today.getFullYear();
+    setDate(date);
+    }, []);
+
+
     return (
        
         <Modal visible={visible} animationType='fade'>
@@ -68,7 +80,7 @@ const JournalEntry = ({ visible, onClose, onSubmit}) => {
             </View>
             
 
-            <Text style={{paddingHorizontal: 15, paddingTop: 10,}}>Date and Time </Text>
+            <Text style={{paddingHorizontal: 15, paddingTop: 10,}}>{date}</Text>
 
             <View style={styles.userInput}>
             <TextInput 

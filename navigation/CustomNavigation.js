@@ -10,7 +10,7 @@ const Stack = createStackNavigator();
 
 const HomeScreenNavigator = () => {
     return (
-        <Stack.Navigator>
+        <Stack.Navigator screenOptions={{headerShown: false}}>
             <Stack.Screen
                 name ="HomeScreen"
                 component={HomeScreen}/>
@@ -26,7 +26,7 @@ export {HomeScreenNavigator};
 
 const JournalScreenNavigator = () => {
     return (
-        <Stack.Navigator>
+        <Stack.Navigator screenOptions={{headerTitle: '', headerTransparent: true}}>
             <Stack.Screen
                 name ="JournalScreen"
                 component={JournalScreen}/>

@@ -40,6 +40,11 @@ export default function JournalScreen({ navigation }) {
   useEffect(() => {
     findListings();
   }, []);
+
+  //the method to send the current item in the journal listings to the Opened Entry page.
+  const openJournal = (listing) => {
+    navigation.navigate("OpenedEntry", {listing});
+  };
   
     return (
       
@@ -107,7 +112,7 @@ export default function JournalScreen({ navigation }) {
             marginTop= '5%'
             keyExtractor = {item => item.id.toString()}
             columnWrapperStyle={{justifyContent:'space-between', marginBottom: 14}}
-            renderItem = {({item}) => <SavedJournals onPress={() => navigation.navigate("OpenedEntry", {msg: "I came From Journals"})} item = {item}/>}
+            renderItem = {({item}) => <SavedJournals onPress={() => openJournal(item)} item = {item}/>}
           ></FlatList>
 
           
