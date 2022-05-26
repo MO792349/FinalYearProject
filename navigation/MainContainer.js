@@ -4,7 +4,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { createStackNavigator } from "@react-navigation/native-stack";
-import {HomeScreenNavigator, JournalScreenNavigator} from './CustomNavigation';
+import {DiscoveryScreenNavigator, HomeScreenNavigator, JournalScreenNavigator} from './CustomNavigation';
 
 //Imports screens
 import HomeScreen from './screens/HomeScreen'
@@ -71,7 +71,7 @@ function MainContainer() {
 
         <Tab.Screen name={homeName} component={HomeScreenNavigator} />
         <Tab.Screen name={journalName} component={JournalScreenNavigator} />
-        <Tab.Screen name={discoveryName} component={DiscoveryScreen} />
+        <Tab.Screen name={discoveryName} component={DiscoveryScreenNavigator} />
         <Tab.Screen name={affirmationsName} component={AffirmationsScreen} />
         <Tab.Screen name={settingsName} component={SettingsScreen} />
 

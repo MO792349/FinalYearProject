@@ -96,6 +96,13 @@ export default function JournalScreen({ navigation }) {
          </View>
          </View>
 
+         {!listings.length ? (
+          <View>
+             <Text style={{paddingHorizontal: 5, marginTop: 30, textAlign:'left' }}>You currently have no journal entries.</Text>
+              <Text style={{paddingHorizontal: 5, marginTop: 10, marginRight: 15, textAlign:'left' }}>There are so many benefits to journaling, try adding a new entry!</Text> 
+           </View>
+        ) : null }
+
          <FlatList
             data ={listings}
             numColumns={2}
@@ -105,14 +112,7 @@ export default function JournalScreen({ navigation }) {
             renderItem = {({item}) => <SavedJournals onPress={() => openJournal(item)} item = {item}/>}
           ></FlatList>
 
-          
-
-         {!listings.length ? (
-          <View>
-             <Text style={{paddingHorizontal: 5, marginTop: 30, textAlign:'left' }}>You currently have no journal entries.</Text>
-              <Text style={{paddingHorizontal: 5, marginTop: 10, marginRight: 15, textAlign:'left' }}>There are so many benefits to journaling, try adding a new entry!</Text> 
-           </View>
-        ) : null }
+         
 
           <View>
           <TouchableOpacity

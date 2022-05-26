@@ -30,8 +30,8 @@ export default function DiscoveryScreen({ navigation }) {
                   marginHorizontal: sizes.padding
                 }}
                 
-                articleItem={item}/>
-                //onPress={() navigation.navigate ("Activity", {activity: item})}
+                articleItem={item}
+                onPress={() => navigation.navigate("ActivityScreen", {msg: "I came From Discover"})}/>
               )
             }}
             ListFooterComponent={
@@ -43,7 +43,9 @@ export default function DiscoveryScreen({ navigation }) {
             }>
 
           </FlatList>
-          
+          <TouchableOpacity onPress={() => navigation.navigate("ArticleScreen", {msg: "I came From Discover as an"})}>
+           <Text >Go to my Journal</Text>
+         </TouchableOpacity>
         </View>
       );
 }

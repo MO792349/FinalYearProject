@@ -41,6 +41,8 @@ export default function HomeScreen({ navigation }) {
   //checking if a user has been saved
   const findUser = async () => {
     const result = await AsyncStorage.getItem('user');
+    console.log(user); 
+    
 
       //a test to check that ensures a username is only set if the result isnt equal to null. 
     if (result !== null){
