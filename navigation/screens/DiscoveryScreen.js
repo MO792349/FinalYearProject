@@ -3,6 +3,7 @@ import * as React from 'react';
 import { FlatList, Button, View, Text } from 'react-native';
 import {TextInput,ScrollView,TouchableOpacity} from 'react-native-gesture-handler'
 import ArticlesCard from '../../components/articlescard';
+import BodyPositiveActivities from '../../src/consts/BodyPositiveActivities';
 
 //imports custom data from constants
 import dummyactivities from '../../src/consts/dummyactivities';
@@ -18,7 +19,7 @@ export default function DiscoveryScreen({ navigation }) {
         <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
 
             <FlatList
-            data={dummyactivities.categories} //gets data from this class holding an array of data
+            data={BodyPositiveActivities.categories} //gets data from this class holding an array of data
             keyExtractor = {item => '${item.id}'} //gets the item's id
             keyboardDismissMode = 'on-drag'
             showsVerticalScrollIndicator = {false}
@@ -31,7 +32,7 @@ export default function DiscoveryScreen({ navigation }) {
                 }}
                 
                 articleItem={item}
-                onPress={() => navigation.navigate("ActivityScreen", {msg: "I came From Discover"})}/>
+                onPress={() => navigation.navigate("ActivityScreen", {activity: item})}/>
               )
             }}
             ListFooterComponent={
@@ -43,9 +44,7 @@ export default function DiscoveryScreen({ navigation }) {
             }>
 
           </FlatList>
-          <TouchableOpacity onPress={() => navigation.navigate("ArticleScreen", {msg: "I came From Discover as an"})}>
-           <Text >Go to my Journal</Text>
-         </TouchableOpacity>
+         
         </View>
       );
 }

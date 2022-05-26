@@ -46,13 +46,8 @@ const ActivityCard = ({ containerStyle, activityItem, onPress}) => {
 
             {/*The Context*/}
             <Text style={{flex:1, fontSize: 11, fontWeight: "300", }}>
-                {activityItem.category} | "Lorem ipsum dolor sit amet, conr adipg elit. "
+                {activityItem.preview} 
             </Text>
-
-            <TouchableOpacity
-                style={{width: "70%", alignItems: 'center', backgroundColor: colours.hotPink, marginTop: 5, padding: 5, borderRadius: 30,}}>
-                <Text style={{ fontSize: 10, color: colours.whitePink, fontWeight: "500"}}>Check it out</Text>
-             </TouchableOpacity>
 
             </View>
 

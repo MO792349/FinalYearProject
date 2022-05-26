@@ -26,14 +26,16 @@ const AffirmationsCard = ({ containerStyle, affirmationItem, onPress}) => {
 
             {/*The Title*/}
 
-            <View style = {{paddingHorizontal:200, justifyContent: 'center', alignItems: 'center', alignContent: 'center'}}>
+            <View style = {{justifyContent: 'center', alignItems: 'center', alignContent: 'center'}}>
             <Text style={{
                 flex:1,
                 fontSize: 14, 
                 fontWeight: "600",
                 textAlign: 'center',
+                color: colours.hotPink,
             }}>
-                {affirmationItem.name}
+    
+                "{affirmationItem.name}"
             </Text>
 
             </View>

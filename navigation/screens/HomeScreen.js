@@ -11,6 +11,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 //imports custom data from constants
 import dummyactivities from '../../src/consts/dummyactivities';
+import BodyPositiveActivities from '../../src/consts/BodyPositiveActivities';
 
 //imports custom made designs from components
 import { ActivityCard } from '../../components';
@@ -102,7 +103,7 @@ export default function HomeScreen({ navigation }) {
         </View>
      
         <FlatList
-         data={dummyactivities.categories} //gets data from this class holding an array of data
+         data={BodyPositiveActivities.categories} //gets data from this class holding an array of data
          keyExtractor = {item => '${item.id}'} //gets the item's id
          keyboardDismissMode = 'on-drag'
          showsVerticalScrollIndicator = {false}
@@ -114,7 +115,7 @@ export default function HomeScreen({ navigation }) {
            return (
              <ActivityCard containerStyle = {{width: 280, marginLeft: 14}}
                            activityItem={item}
-                           onPress={() => navigation.navigate("ActivityScreen", {msg: "I came From Screen1"})}/> //onPress={() navigation.navigate ("Activity", {activity: item})}
+                           onPress={() => navigation.navigate("ActivityScreen", {activity: item})}/> //onPress={() navigation.navigate ("Activity", {activity: item})}
             )
          }}
      
@@ -124,8 +125,8 @@ export default function HomeScreen({ navigation }) {
      
        {/*Daily Quote Section*/}
        <View style={{backgroundColor: colours.hotPink, paddingHorizontal: 20, padding: 55}}>
-         <Text style={{ textAlign: 'center', fontSize: 16, fontWeight: "600",color: "#00151A"}}>Inspirational Quote</Text>
-         <Text style={{ marginTop: 14, textAlign: 'center', fontSize: 11, fontWeight: "400",color: "#00151A"}}>-Credit to the Author</Text>
+         <Text style={{ textAlign: 'center', fontSize: 16, fontWeight: "600",color: colours.white}}>“Lines can be the etchings of your biggest smiles, the frowns you learned from, the proof that you change and grow.”</Text>
+         <Text style={{ marginTop: 14, textAlign: 'center', fontSize: 11, fontWeight: "400",color:colours.white}}>―Eleanor Gordon-Smith</Text>
        </View>
      
        {/*Recommended Reading Section*/}
@@ -143,7 +144,7 @@ export default function HomeScreen({ navigation }) {
         </View>
      
         <FlatList
-         data={dummyactivities.categories} //gets data from this class holding an array of data
+         data={BodyPositiveActivities.categories} //gets data from this class holding an array of data
          keyExtractor = {item => '${item.id}'} //gets the item's id
          keyboardDismissMode = 'on-drag'
          showsVerticalScrollIndicator = {false}

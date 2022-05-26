@@ -32,7 +32,8 @@ export default function AffirmationsScreen({ navigation }) {
             textAlign: 'center',
             marginBottom: 10,
             paddingHorizontal: 30,
-          }}>I am the quote you needed </Text>
+          }}>“You have been criticizing yourself for years and it hasn’t worked. Try approving of yourself and see what happens.” — Louise Hay   
+          </Text>
 
         <TouchableOpacity
           style={{
@@ -107,12 +108,9 @@ export default function AffirmationsScreen({ navigation }) {
             
             renderItem={({item}) => {
               return (
-                < AffirmationsCard containerStyle = {{
-                  
-                }}
-                
+                <AffirmationsCard containerStyle = {{width: 280, marginLeft: 14}}
                 affirmationItem={item}
-                onPress={() => navigation.navigate("ActivityScreen", {msg: "I came From Discover"})}/>
+                onPress={() => navigation.navigate("ActivityScreen")}/>
               )
             }}
             ListFooterComponent={

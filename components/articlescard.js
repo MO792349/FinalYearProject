@@ -47,7 +47,7 @@ const ArticlesCard = ({ containerStyle, articleItem, onPress}) => {
                 fontSize: 11, 
                 fontWeight: "300",
             }}>
-                {articleItem.category} | "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur quis dignissim ipsum. "
+                {articleItem.preview} 
             </Text>
 
             </View>
